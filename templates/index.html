@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block main %}
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">欢迎, {{ cas.attributes["cas:fullname"] }}</h1>
+          <a href="/logout/" class="btn btn-warning">登出</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-lg-12">
+            {% for k, v in cas.attributes.items() %}
+            <p>
+                <div><strong>{{ k }}</strong></div>
+                <div>{{ v }}</div>
+            </p>
+            {% endfor %}
+        </div>
+      </div>
+
+      <hr>
+
+      <footer>
+        <p>&copy; Company 2016</p>
+      </footer>
+    </div> <!-- /container -->
+{% endblock %}
